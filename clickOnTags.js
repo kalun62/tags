@@ -10,7 +10,7 @@ buttons.forEach(btn => {
 })
 
 closed.addEventListener('click', () => {
-	window. close()
+	window.close()
 })
 
 function post(item) {
