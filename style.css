@@ -4,13 +4,14 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
-body{
+.body_main{
 	background: rgb(255,255,255);
 	background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(145,220,240,1) 48%, rgba(255,255,255,1) 100%);
 }
 .mainTitle{
 	font-size: 30px;
 	color: darkcyan;
+	padding: 20px;
 }
 #tagContainer {
     position:relative;
@@ -54,7 +55,7 @@ span.tag {
 h1{
 	font-size: 18px;
     text-align: center;
-    padding: 20px;
+    padding: 50px 20px 10px;
 }
 
 .wrapper{
@@ -88,4 +89,33 @@ h1{
 }
 .wrapper_buttons .btn.press{
 	background-color: rgb(176, 115, 1) !important;
+}
+
+.popup{
+	display: none;
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	background-color: aliceblue;
+	border-radius: 8px;
+	align-items: center;
+	justify-content: center;
+	color: orange;
+}
+
+.popup .closed{
+	position: absolute;
+	width: 30%;
+	left: calc(50% - 15%);
+	bottom: 20px;
+	background-color: orange;
+    border-radius: 8px;
+    padding: 12px 0;
+	color: white;
+    font-weight: 600;
+	outline: none;
+    border: none;
+
 }
