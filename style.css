@@ -83,6 +83,7 @@ h1{
     font-weight: 600;
     outline: none;
     border: none;
+	cursor: pointer;
 }
 
 .wrapper_buttons .btn:hover{
@@ -118,5 +119,6 @@ h1{
     font-weight: 600;
 	outline: none;
     border: none;
+	cursor: pointer;
 
 }

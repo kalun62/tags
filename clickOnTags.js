@@ -10,7 +10,7 @@ buttons.forEach(btn => {
 })
 
 closed.addEventListener('click', () => {
-	window.close()
+	window.location = `https://xn--d1acibfeglkhnjilxn5k.xn--p1ai/`
 })
 
 function post(item) {
