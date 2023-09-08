@@ -31,6 +31,20 @@ span.tag {
 	text-transform: uppercase;
 	transition: .5s;
 }
+span.tag .count{
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: -7px;
+    right: -15px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #6c6c6c;
+    font-size: 10px;
+}
 
 #click{
 	position: absolute;

@@ -60,7 +60,7 @@ function render() {
 		eSpan.style.top = y + "px";
 
 		eSpan.style.color = "#" + ("000000" + (Math.random() * 16777215 | 0).toString(16)).slice(-6);
-		eSpan.innerHTML = arrTags[i][0];
+		eSpan.innerHTML = `${arrTags[i][0]}<i class="count"></i>`;
 		tagCont.appendChild(eSpan)
 
 	}
@@ -122,6 +122,7 @@ function animate() {
 		var randomColor = predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
 
 		tags[i].style.fontSize = font + "px";
+		tags[i].querySelector('.count').innerHTML = arrTags[i][1];
 		tags[i].style.left = x + "px";
 		tags[i].style.top = y + "px";
 		tags[i].style.color = randomColor;
