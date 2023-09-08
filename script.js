@@ -29,8 +29,6 @@ const getAllCourses = async () => {
 	}
 }
 
-
-
 function render() {
 	const tagCont = document.getElementById("tagContainer");
 
@@ -75,7 +73,7 @@ function animate() {
 	const container = document.getElementById('tagContainer');
 	const tags = document.querySelectorAll('.tag')
 
-	const predefinedColors = ['#42AAFF', '#F34723', '#1560BD', '#7CFC00', '#0047AB', '#FEFE22', '#00FF00', '#FF9900', '#5733FF'];
+	const predefinedColors = ['blue', 'coral', 'darkgreen', 'darkmagenta', 'deeppink', 'deepskyblue', 'firebrick', 'lime', 'orangered'];
 
 	const containerWidth = container.clientWidth
 	const containerHeight = container.clientHeight

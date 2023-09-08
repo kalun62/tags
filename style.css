@@ -4,13 +4,21 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+body{
+	background: rgb(255,255,255);
+	background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(145,220,240,1) 48%, rgba(255,255,255,1) 100%);
+}
+.mainTitle{
+	font-size: 30px;
+	color: darkcyan;
+}
 #tagContainer {
     position:relative;
-    background-color:white;
+    background-color:transparent;
     margin:0 auto;
     padding:0;
     width: 70%;
-    height:100vh;
+    height:88vh;
 }
 span.tag {
     position:absolute;
@@ -25,8 +33,19 @@ span.tag {
 
 #click{
 	position: absolute;
-	left: 20px;
-	top: 100px;
+	right: 5px;
+	bottom: 5px;
+	padding: 5px;
+	background-color: transparent;
+	border-radius: 8px;
+	outline: none;
+	border: 1px solid #ccc;
+	color: #ccc;
+	cursor: pointer;
+	transition: .3s;
+}
+#click:hover{
+	color: black;
 }
 
 
