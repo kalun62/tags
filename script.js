@@ -75,6 +75,19 @@ function animate() {
 
 	const predefinedColors = ['blue', 'coral', 'darkgreen', 'darkmagenta', 'deeppink', 'deepskyblue', 'firebrick', 'lime', 'orangered'];
 
+	const predefinedPositions = [
+		{ x: 100, y: 50 },
+		{ x: 200, y: 100 },
+		{ x: 300, y: 150 },
+		{ x: 400, y: 200 },
+		{ x: 500, y: 250 },
+		{ x: 600, y: 50 },
+		{ x: 700, y: 100 },
+		{ x: 100, y: 200 },
+		{ x: 200, y: 250 },
+		{ x: 300, y: 50 }
+	];
+
 	const containerWidth = container.clientWidth
 	const containerHeight = container.clientHeight
 
@@ -91,23 +104,35 @@ function animate() {
 		min: sum(arrTags[0])
 	});
 
+	const usedPositions = new Set();
+
 	for (var i = 0; i < arrTags.length; i++) {
-
 		var font = 12 + 52 * (arrTags[i][1] - obj.min) / (obj.max - obj.min);
-		var x = Math.floor(Math.random() * (containerWidth - 200));
-		var y = Math.floor(Math.random() * (containerHeight - 100));
-		tags[i].style.fontSize = font + "px";
 
+		// Выбираем случайную позицию из predefinedPositions, которая еще не используется
+		let randomPosition;
+		do {
+			randomPosition = predefinedPositions[Math.floor(Math.random() * predefinedPositions.length)];
+		} while (usedPositions.has(JSON.stringify(randomPosition)));
+
+		usedPositions.add(JSON.stringify(randomPosition));
+
+		// Используем выбранные координаты
+		var x = randomPosition.x;
+		var y = randomPosition.y;
+
+		// Выбираем случайный цвет из predefinedColors
+		var randomColor = predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
+
+		tags[i].style.fontSize = font + "px";
 		tags[i].style.left = x + "px";
 		tags[i].style.top = y + "px";
-
-		tags[i].style.color = predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
-
+		tags[i].style.color = randomColor;
 	}
 }
 
 const int = setInterval(() => {
 	getAllCourses()
-}, 2000)
+}, 3000)
 
 render()
