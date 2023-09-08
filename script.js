@@ -76,20 +76,17 @@ function animate() {
 	const predefinedColors = ['blue', 'coral', 'darkgreen', 'darkmagenta', 'deeppink', 'deepskyblue', 'firebrick', 'lime', 'orangered'];
 
 	const predefinedPositions = [
-		{ x: 100, y: 50 },
-		{ x: 200, y: 100 },
-		{ x: 300, y: 150 },
-		{ x: 400, y: 200 },
-		{ x: 500, y: 250 },
-		{ x: 600, y: 50 },
-		{ x: 700, y: 100 },
-		{ x: 100, y: 200 },
-		{ x: 200, y: 250 },
-		{ x: 300, y: 50 }
+		{ x: 100, y: 40 },
+		{ x: 800, y: 50 },
+		{ x: 400, y: 60 },
+		{ x: 400, y: 300 },
+		{ x: 800, y: 450 },
+		{ x: 100, y: 450 },
+		{ x: 100, y: 250 },
+		{ x: 700, y: 250 },
+		{ x: 350, y: 200 },
+		{ x: 700, y: 150 },
 	];
-
-	const containerWidth = container.clientWidth
-	const containerHeight = container.clientHeight
 
 	function sum(el) {
 		return el[1] + el[2]
