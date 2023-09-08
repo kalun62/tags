@@ -61,6 +61,7 @@ h1{
 .wrapper{
 	width: 100%;
 	height: 100vh;
+	background-color: oldlace;
 }
 .wrapper_buttons{
 	padding: 20px;
