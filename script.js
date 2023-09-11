@@ -1,5 +1,6 @@
 const appLink = 'https://script.google.com/macros/s/AKfycbxkQkFFvlRylt4iu57ZYXqbvEr5oQVOdpLTh3OtEVSqOulGzyYOuVGexnduDaXK_-sB/exec'
-const btn = document.getElementById('click')
+const stopBtn = document.getElementById('stop')
+const startBtn = document.getElementById('start')
 
 let firstRender = true
 let arrTags = [
@@ -16,7 +17,7 @@ let arrTags = [
 ];
 
 
-btn.addEventListener('click', () => {
+stopBtn.addEventListener('click', () => {
 	clearInterval(int)
 })
 const getAllCourses = async () => {
@@ -30,9 +31,22 @@ const getAllCourses = async () => {
 }
 
 function render() {
+	const predefinedColors = ['blue', 'coral', 'darkgreen', 'darkmagenta', 'deeppink', 'deepskyblue', 'firebrick', 'lime', 'orangered'];
+
+	const predefinedPositions = [
+		{ x: 100, y: 40 },
+		{ x: 800, y: 50 },
+		{ x: 400, y: 60 },
+		{ x: 400, y: 300 },
+		{ x: 800, y: 450 },
+		{ x: 100, y: 450 },
+		{ x: 100, y: 250 },
+		{ x: 700, y: 250 },
+		{ x: 350, y: 200 },
+		{ x: 700, y: 150 },
+	];
 	const tagCont = document.getElementById("tagContainer");
 
-	// tagCont.innerHTML = ``
 	function sum(el) {
 		return el[1] + el[2]
 	}
@@ -46,20 +60,31 @@ function render() {
 		min: sum(arrTags[0])
 	});
 
-
+	const usedPositions = new Set();
 	for (var i = 0; i < arrTags.length; i++) {
 
 		var eSpan = document.createElement("span");
 		eSpan.className = "tag";
 		var font = 12 + 52 * (arrTags[i][1] - obj.min) / (obj.max - obj.min);
-		var x = Math.floor(Math.random() * 800);
-		var y = Math.floor(Math.random() * 300);
 		eSpan.style.fontSize = font + "px";
+
+		let randomPosition;
+		do {
+			randomPosition = predefinedPositions[Math.floor(Math.random() * predefinedPositions.length)];
+		} while (usedPositions.has(JSON.stringify(randomPosition)));
+
+		usedPositions.add(JSON.stringify(randomPosition));
+
+		var x = randomPosition.x;
+		var y = randomPosition.y;
+		
 
 		eSpan.style.left = x + "px";
 		eSpan.style.top = y + "px";
 
-		eSpan.style.color = "#" + ("000000" + (Math.random() * 16777215 | 0).toString(16)).slice(-6);
+		var randomColor = predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
+		eSpan.style.color = randomColor;
+
 		eSpan.innerHTML = `${arrTags[i][0]}<i class="count"></i>`;
 		tagCont.appendChild(eSpan)
 
@@ -70,7 +95,6 @@ function render() {
 
 function animate() {
 
-	const container = document.getElementById('tagContainer');
 	const tags = document.querySelectorAll('.tag')
 
 	const predefinedColors = ['blue', 'coral', 'darkgreen', 'darkmagenta', 'deeppink', 'deepskyblue', 'firebrick', 'lime', 'orangered'];
@@ -118,6 +142,7 @@ function animate() {
 		var x = randomPosition.x;
 		var y = randomPosition.y;
 
+		
 		// Выбираем случайный цвет из predefinedColors
 		var randomColor = predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
 

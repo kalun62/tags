@@ -46,7 +46,7 @@ span.tag .count{
     font-size: 10px;
 }
 
-#click{
+#stop, #start{
 	position: absolute;
 	right: 5px;
 	bottom: 5px;
@@ -59,7 +59,10 @@ span.tag .count{
 	cursor: pointer;
 	transition: .3s;
 }
-#click:hover{
+#start{
+	right: 100px;
+}
+#click:hover, #start:hover{
 	color: black;
 }
 
