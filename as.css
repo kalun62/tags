@@ -1,0 +1,28 @@
+.tag-cloud {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.tag {
+    display: inline-block;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.tag:hover {
+    color: #FF5733; /* Цвет при наведении */
+    cursor: pointer;
+}
+
+
+#start, #stop{
+	position: absolute;
+	bottom: 10px;
+}
+#start{
+	right: 100px;
+}
+#stop{
+	right: 5px;
+}
