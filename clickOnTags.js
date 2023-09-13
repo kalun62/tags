@@ -6,7 +6,7 @@ const popup = document.querySelector('.popup')
 const closed = document.querySelector('.closed')
 
 buttons.forEach(btn => {
-	btn. addEventListener('click', () => post(btn))
+	btn.addEventListener('click', () => post(btn))
 })
 
 closed.addEventListener('click', () => {
@@ -15,8 +15,11 @@ closed.addEventListener('click', () => {
 
 function post(item) {
 	const formData = new FormData()
-
-	formData.append('id', item.getAttribute('id'))
+	if(!item.classList.contains('submit')){
+		formData.append('name', item.innerText.toLowerCase())
+	}else{
+		formData.append('name', item.previousElementSibling.value.toLowerCase())
+	}
 			
 	axios.post(linkApp, formData)
 
@@ -25,3 +28,6 @@ function post(item) {
 	},1000)
 
 }
+
+
+
