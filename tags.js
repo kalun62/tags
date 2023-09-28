@@ -1,7 +1,7 @@
 const start = document.getElementById('start')
 const stop = document.getElementById('stop')
 
-start.addEventListener('click', () => {
+// start.addEventListener('click', () => {
 	const int = setInterval(() => {
 		getAllCourses()
 	}, 3000)
@@ -9,22 +9,22 @@ start.addEventListener('click', () => {
 	stop.addEventListener('click', () => {
 		clearInterval(int)
 	})
-})
+// })
 
 // Данные для тегов с их весами
 let tags = [
-	{ text: "JavaScript", size: 30, color: getRandomColor() },
-	{ text: "HTML", size: 25, color: getRandomColor() },
-	{ text: "CSS", size: 20, color: getRandomColor() },
-	{ text: "Web Development", size: 18, color: getRandomColor() },
-	{ text: "Programming", size: 15, color: getRandomColor() },
+	// { text: "JavaScript", size: 30, color: getRandomColor() },
+	// { text: "HTML", size: 25, color: getRandomColor() },
+	// { text: "CSS", size: 20, color: getRandomColor() },
+	// { text: "Web Development", size: 18, color: getRandomColor() },
+	// { text: "Programming", size: 15, color: getRandomColor() },
 	// Добавьте больше тегов и настройте их размеры и цвета
 	// Добавьте больше тегов и настройте их размеры
 ];
 
 // Настройки для облака тегов
-const width = 800; // Ширина контейнера
-const height = 400; // Высота контейнера
+const width = window.innerWidth; // Ширина контейнера
+const height = window.innerHeight; // Высота контейнера
 
 // Генерируем случайный цвет в формате RGB
 function getRandomColor() {
@@ -36,11 +36,14 @@ function getRandomColor() {
 
 const appLink = `https://script.google.com/macros/s/AKfycbxkQkFFvlRylt4iu57ZYXqbvEr5oQVOdpLTh3OtEVSqOulGzyYOuVGexnduDaXK_-sB/exec`
 
+
+// Установите минимальный и максимальный размер шрифта для тегов
+const minFontSize = 10; // Минимальный размер шрифта
+const maxFontSize = 60; // Максимальный размер шрифта
+
 async function getAllCourses() {
 	try {
 		const response = await axios.get(appLink)
-		console.log(response.data);
-
 	
 		// Функция для сравнения двух массивов объектов
 		function arraysOfObjectsAreEqual(arr1, arr2) {
@@ -116,8 +119,11 @@ function createTagCloud() {
 }
 
 function updateTagCloud(newTags) {
+	document.querySelector('svg').classList.add('hide')
+
 	// Удалите текущее облако тегов, если оно существует
-	d3.select("#tagCloud svg").remove();
+	setTimeout(() => {
+		d3.select("#tagCloud svg").remove();
 
 	// Создайте новое облако тегов с новыми данными
 	d3.layout.cloud()
@@ -138,12 +144,13 @@ function updateTagCloud(newTags) {
 			.selectAll("text")
 			.data(words)
 			.enter().append("text")
-			.style("font-size", d => `${d.size}px`)
+			.style("font-size", d => `${d.size*1.5}px`)
 			.style("fill", d => d.color) // Применяем цвет к тексту на основе данных
 			.attr("text-anchor", "middle")
-			.attr("transform", d => `translate(${d.x},${d.y}) rotate(${d.rotate})`)
+			.attr("transform", d => `translate(${d.x * 1.8},${d.y * 1.8}) rotate(${d.rotate})`)
 			.text(d => d.text);
 	}
+	},600)
 }
 
 // Вызываем функцию для создания облака тегов
