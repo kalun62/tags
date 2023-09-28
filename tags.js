@@ -7,6 +7,7 @@ const stop = document.getElementById('stop')
 	}, 3000)
 
 	stop.addEventListener('click', () => {
+		console.log('click');
 		clearInterval(int)
 	})
 // })
@@ -140,7 +141,7 @@ function updateTagCloud(newTags) {
 			.attr("width", width)
 			.attr("height", height)
 			.append("g")
-			.attr("transform", `translate(${width / 2},${height / 2})`)
+			.attr("transform", `translate(${width / 2},${height / 1.7})`)
 			.selectAll("text")
 			.data(words)
 			.enter().append("text")
