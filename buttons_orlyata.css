@@ -88,7 +88,7 @@ h1{
 	top: 0;
 	right: 0;
 	bottom: 0;
-	/* background-color: aliceblue; */
+	background-color: white;
 	background-image: url('images/winged-background.jpg');
 	background-repeat: no-repeat;
     background-position: center;
