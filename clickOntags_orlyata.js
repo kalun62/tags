@@ -1,5 +1,5 @@
 
-const linkApp = `https://script.google.com/macros/s/AKfycbxkQkFFvlRylt4iu57ZYXqbvEr5oQVOdpLTh3OtEVSqOulGzyYOuVGexnduDaXK_-sB/exec`
+const linkApp = `https://script.google.com/macros/s/AKfycbx4_KoU_xcZtmMpJNMlMYXQypkc24iFI-xSGDoQk7jPEYUUblxNMCquilKfyrHtBsX2/exec`
 
 const buttons = document.querySelectorAll('.btn')
 const popup = document.querySelector('.popup')
@@ -10,7 +10,7 @@ buttons.forEach(btn => {
 })
 
 closed.addEventListener('click', () => {
-	window.location = `https://xn--80aaailatklfebdtdfov7aahtbt5b2bi9i1a.xn--p1ai/`
+	window.location = `https://orlyatarussia.ru/forum-uchiteley-orlyat-rossii/`
 })
 
 function post(item) {
